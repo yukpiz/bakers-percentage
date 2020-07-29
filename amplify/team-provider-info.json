@@ -1,0 +1,15 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-bakerspercentage-dev-142420-authRole",
+            "UnauthRoleArn": "arn:aws:iam::793539351801:role/amplify-bakerspercentage-dev-142420-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::793539351801:role/amplify-bakerspercentage-dev-142420-authRole",
+            "Region": "ap-northeast-1",
+            "DeploymentBucketName": "amplify-bakerspercentage-dev-142420-deployment",
+            "UnauthRoleName": "amplify-bakerspercentage-dev-142420-unauthRole",
+            "StackName": "amplify-bakerspercentage-dev-142420",
+            "StackId": "arn:aws:cloudformation:ap-northeast-1:793539351801:stack/amplify-bakerspercentage-dev-142420/c44cad50-d15b-11ea-bd1b-0a50f89864ca",
+            "AmplifyAppId": "d12k4f79lmdfes"
+        }
+    }
+}
