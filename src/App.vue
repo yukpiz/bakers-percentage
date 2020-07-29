@@ -1,8 +1,11 @@
 <template>
   <div id="app">
+    <div class="title">{{ $t("message.title") }}</div>
+    <button type="button" @click="changeLocale('en')">en</button>
+    <button type="button" @click="changeLocale('ja')">ja</button>
+
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/settings">Settings</router-link>
     </div>
     <router-view/>
   </div>
@@ -30,3 +33,17 @@
   color: #42b983;
 }
 </style>
+
+<script lang="ts">
+
+import { i18n } from '@/main'
+
+export default {
+  methods: {
+    changeLocale(locale: string) {
+      i18n.locale = locale
+    }
+  }
+}
+
+</script>
