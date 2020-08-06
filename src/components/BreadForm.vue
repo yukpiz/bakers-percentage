@@ -1,18 +1,37 @@
 <template>
-  <div class="bread-form">
-    <div>{{ $t("message.flourTitle") }}</div>
-    <input type="number" v-model="inputFlour"/><div>g</div>
-    <button @click="calc">{{ $t("message.calcButtonTitle") }}</button>
+  <v-form class="mt-md-5 mt-0 ml-md-10 ml-2">
+    <v-row class="align-baseline">
+      <v-col class="d-flex align-end" md="3">
+        <v-text-field
+          autofocus
+          clearable
+          :label="$t('message.flourTitle')"
+          :hint="$t('message.inputFlourHint')"
+          type="number"
+          v-model="inputFlour"></v-text-field>
+        <div class="pb-5">{{ $t("message.gramUnit") }}</div>
+      </v-col>
 
-    <div>
-      <button @click="flour(flour1)">{{ flour1 }}g</button>
-      <button @click="flour(flour2)">{{ flour2 }}g</button>
-      <button @click="flour(flour3)">{{ flour3 }}g</button>
-      <button @click="flour(flour4)">{{ flour4 }}g</button>
-      <button @click="flour(flour5)">{{ flour5 }}g</button>
-    </div>
-  </div>
+      <v-col md="3">
+        <v-btn color="primary" width="100%" @click="calc">{{ $t("message.calcButtonTitle") }}</v-btn>
+      </v-col>
+    </v-row>
+
+    <v-layout>
+      <v-btn small class="mr-2" @click="flour(flour1)">{{ flour1 }}g</v-btn>
+      <v-btn small class="mr-2" @click="flour(flour2)">{{ flour2 }}g</v-btn>
+      <v-btn small class="mr-2" @click="flour(flour3)">{{ flour3 }}g</v-btn>
+      <v-btn small class="mr-2" @click="flour(flour4)">{{ flour4 }}g</v-btn>
+      <v-btn small class="mr-2" @click="flour(flour5)">{{ flour5 }}g</v-btn>
+    </v-layout>
+  </v-form>
 </template>
+
+<style scoped>
+.v-btn {
+  text-transform: none;
+}
+</style>
 
 <script lang="ts">
 import { Component, Emit, Prop, Vue } from 'vue-property-decorator';
@@ -51,6 +70,7 @@ export default class BreadForm extends Vue {
 
   private flour(val: number): void {
     this.inputFlour = val
+    this.calc()
   }
 }
 </script>

@@ -1,49 +1,49 @@
 <template>
-  <div id="app">
-    <div class="title">{{ $t("message.title") }}</div>
-    <button type="button" @click="changeLocale('en')">en</button>
-    <button type="button" @click="changeLocale('ja')">ja</button>
+  <v-app>
+    <v-app-bar app color="brown" dark>
+      <div class="app-name d-flex align-center">{{ $t("message.title") }}</div>
+      <v-spacer></v-spacer>
 
-    <div id="nav">
-      <router-link to="/settings">Settings</router-link>
-    </div>
-    <router-view/>
-  </div>
+      <v-btn icon color="white">
+        <v-icon>mdi-cog</v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <router-view/>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style scoped>
+.container {
+  max-width: 100%;
 }
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.app-name {
+  font-size: 1.5em;
+  font-family: 'Josefin Sans', sans-serif;
 }
 </style>
 
 <script lang="ts">
-
+import { Component, Vue } from 'vue-property-decorator';
 import { i18n } from '@/main'
 
-export default {
-  methods: {
-    changeLocale(locale: string) {
-      i18n.locale = locale
+@Component({
+  components: {},
+})
+export default class App extends Vue {
+  public constructor() {
+    super()
+    const lang = this.$route.query.lang as string
+    if (lang && ['en', 'ja'].includes(lang)) {
+      i18n.locale = lang
     }
   }
-}
 
+  private changeLocale(locale: string) {
+    i18n.locale = locale
+  }
+}
 </script>

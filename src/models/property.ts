@@ -13,6 +13,6 @@ export type SkimMilk = CalculatedProperty
 export type Egg = CalculatedProperty
 
 export interface CalculatedProperty {
-  ratio: number
-  amount?: number
+  ratio: number;
+  amount?: number;
 }
